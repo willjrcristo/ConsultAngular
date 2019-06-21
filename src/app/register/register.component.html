@@ -1,0 +1,53 @@
+<form (ngSubmit)="onSubmit()">
+
+  <div class="row">
+    <div class="col-lg-3 col-md-12 col-sm-12">
+        <div class="form-group">
+            <label for="register-patientname">
+              <span>Nome</span>
+            </label>
+            <input type="text" class="form-control" name="patientName" id="patientName" placeholder="Nome do Paciente" [(ngModel)]="consult.patientName">
+          </div>
+    </div>    
+    <div class="col-lg-3 col-md-4 col-sm-12">
+      <div class="form-group">
+        <label for="patientBornIn">
+          <span>Nascido Em</span>
+        </label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+          </div>
+          <input type="date" class="form-control" name="patientBornIn" id="patientBornIn" [(ngModel)]="consult.patientBornIn">
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-12">
+      <div class="form-group">
+        <label for="consultStartAt">
+          <span>Começa às</span>
+        </label>
+        <input name="consultStartAt" id="consultStartAt" type="datetime-local" [(ngModel)]="consult.consultStartAt" class="form-control">
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-12">
+      <div class="form-group">
+        <label for="consultFinishAt">
+          <span>Termina às</span>
+        </label>
+        <input name="consultFinishAt" id="consultFinishAt" type="datetime-local" [(ngModel)]="consult.consultFinishAt" class="form-control">
+      </div>
+    </div>    
+  </div>
+
+  <div class="form-group">
+    <label for="consultNotes">
+      <span>Observação</span>
+    </label>
+    <textarea class="form-control" rows="3" name="consultNotes" id="consultNotes" [(ngModel)]="consult.consultNotes"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-lg">Salvar</button>
+  <a href="#" class="btn btn-secondary btn-lg">Cancelar</a>
+
+</form>

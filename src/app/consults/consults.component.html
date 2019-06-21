@@ -1,0 +1,8 @@
+<div *ngFor="let consult of consults">  
+  <p>
+    Paciente {{consult.patientName}} nascido em {{consult.patientBornIn}} 
+    começando às {{consult.consultStartAt}} e terminando às {{consult.consultFinishAt}}.
+  </p>
+  <h5>Observações:</h5>
+  <p>{{consult.consultNotes}}</p>
+</div>
