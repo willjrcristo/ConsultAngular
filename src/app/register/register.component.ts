@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, HostListener } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Consult } from './consult';
+import { ConsultsService } from '../consults/consults.service';
 //import swal from 'sweetalert';
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ export class RegisterComponent implements OnInit {
 
   consult;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private consultsService: ConsultsService) { }
 
   ngOnInit() {
     console.log("register.component.ngOnInit");    
@@ -26,6 +27,7 @@ export class RegisterComponent implements OnInit {
           console.log("POST call successful value returned in body", 
           val);
           this.consult = new Consult();
+          this.refreshConsults();
         },
         error => { 
           const { error: err } = error;          
@@ -51,5 +53,10 @@ export class RegisterComponent implements OnInit {
     finally {
       console.log("Finalization...");
     }
+  }
+
+  @HostListener('refreshConsults')
+  refreshConsults() {
+    this.consultsService.refresh();
   }
 }

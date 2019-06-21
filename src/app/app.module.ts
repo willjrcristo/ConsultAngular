@@ -12,8 +12,8 @@ import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ConsultsComponent,
     RegisterComponent,
+    ConsultsComponent,    
   ],
   imports: [
     BrowserModule,
